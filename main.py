@@ -13,7 +13,7 @@ print("\n=== 5 Data Pertama ===")
 print(tabulate(data.head(), headers='keys', tablefmt='fancy_grid', showindex=False))
 
 print("\n=== Statistik Deskriptif ===")
-print(data.describe())
+print(tabulate(data.describe(), headers='keys', tablefmt='fancy_grid'))
 
 print("\n=== Hitung Rata-rata, median, modus ===")
 print("Rata-rata: ", data['Nilai'].mean())
@@ -59,4 +59,5 @@ plt.title('Sebaran Nilai per Mata Pelajaran')
 plt.xlabel('Mata Pelajaran')
 plt.ylabel('Nilai')
 plt.tight_layout()
+
 plt.show()
