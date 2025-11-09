@@ -12,52 +12,52 @@ print(data.info())
 print("\n=== 5 Data Pertama ===")
 print(tabulate(data.head(), headers='keys', tablefmt='fancy_grid', showindex=False))
 
+
 print("\n=== Statistik Deskriptif ===")
 print(tabulate(data.describe(), headers='keys', tablefmt='fancy_grid'))
+
 
 print("\n=== Hitung Rata-rata, median, modus ===")
 print("Rata-rata: ", data['Nilai'].mean())
 print("Median:", data['Nilai'].median())
 print("Modus:", data['Nilai'].mode()[0])
 
-print("\n=== Tampilkan Nilai per mata pelajaran ===")
+print("\n=== Tampilkan Nilai per Mata Pelajaran ===")
 
-#Matematika
 matematika = data[data['Matpel'] == 'Matematika']
 print("\nMatematika:")
-print(matematika)
+print(tabulate(matematika, headers='keys', tablefmt='fancy_grid', showindex=False))
 
-#Bahasa Indonesia
-BahasaIndonesia = data[data['Matpel'] == 'Bahasa Indonesia']
-print("\nBahasa Indonesia : ")
-print(BahasaIndonesia)
+bahasa_indonesia = data[data['Matpel'] == 'Bahasa Indonesia']
+print("\nBahasa Indonesia:")
+print(tabulate(bahasa_indonesia, headers='keys', tablefmt='fancy_grid', showindex=False))
 
-# Bahasa Inggris
-inggris = data[data['Matpel'] == 'Bahasa Inggris']
+bahasa_inggris = data[data['Matpel'] == 'Bahasa Inggris']
 print("\nBahasa Inggris:")
-print(inggris)
+print(tabulate(bahasa_inggris, headers='keys', tablefmt='fancy_grid', showindex=False))
 
-# Produktif (kalau ada di datamu)
 produktif = data[data['Matpel'] == 'Produktif']
 print("\nProduktif:")
-print(produktif)
+print(tabulate(produktif, headers='keys', tablefmt='fancy_grid', showindex=False))
 
-# === Nilai Maksimum dan Minimum per Mata Pelajaran ===
+
 print("\n=== Nilai Maksimum & Minimum per Mata Pelajaran ===")
-print(data.groupby('Matpel')['Nilai'].agg(['max', 'min']))
+print(tabulate(data.groupby('Matpel')['Nilai'].agg(['max', 'min']), headers='keys', tablefmt='fancy_grid'))
 
 print("\n=== Grafik Rata-Rata Nilai per Mata Pelajaran ===")
 rata = data.groupby('Matpel')['Nilai'].mean()
-rata.plot(kind='bar')
+rata.plot(kind='bar', color='skyblue', edgecolor='black')
 plt.title('Rata-Rata Nilai per Mata Pelajaran')
 plt.xlabel('Mata Pelajaran')
 plt.ylabel('Nilai Rata-Rata')
+plt.tight_layout()
 plt.show()
 
+
+print("\n=== Boxplot Sebaran Nilai per Mata Pelajaran ===")
 sns.boxplot(x='Matpel', y='Nilai', data=data, palette='Set2')
 plt.title('Sebaran Nilai per Mata Pelajaran')
 plt.xlabel('Mata Pelajaran')
 plt.ylabel('Nilai')
 plt.tight_layout()
-
 plt.show()
