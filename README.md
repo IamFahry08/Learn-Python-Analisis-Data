@@ -180,7 +180,7 @@ Warna dari palette='Set2' bikin visualnya lebih menarik dan lembut.
 
 # 👨‍💻 Author
 ## Fahry Irvan Yudiansyah
-## Kelas: X RPL 2
+## Kelas: XI RPL 2
 ## Sekolah: SMK Telkom Malang
 ## Proyek: Analisis Data dan Visualisasi Nilai Siswa
 
